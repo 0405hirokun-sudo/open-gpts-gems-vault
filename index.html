@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenGPTs & Gems Vault | 50+ Standalone AI Web Apps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-indigo-900/60 via-purple-900/60 to-pink-900/60 border-b border-indigo-500/20 px-4 py-2 text-center text-xs sm:text-sm text-indigo-200">
+        🎉 50+ Specialized AI Custom Engines Converted from GPTs & Gems into Standalone HTML5 Apps • 100% Free & Open-Source
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">⚡</span>
+                <span class="font-extrabold text-lg text-white tracking-tight">OpenGPTs & Gems <span class="text-indigo-400">Vault</span></span>
+                <span class="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono">v1.0 Live</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <a href="https://github.com/0405hirokun-sudo/open-gpts-gems-vault" target="_blank" class="text-xs bg-slate-800 hover:bg-slate-700 text-white px-3.5 py-2 rounded-lg border border-slate-700 transition-colors flex items-center space-x-1.5 font-medium">
+                    <span>⭐ Star on GitHub</span>
+                </a>
+                <a href="https://hirokun4.gumroad.com" target="_blank" class="text-xs bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold px-3.5 py-2 rounded-lg shadow-md transition-all">
+                    <span>Gumroad Store ↗</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-4 pt-12 pb-8 text-center">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-4">
+            <span>🌐 Autonomous Digital Transformation</span>
+            <span>•</span>
+            <span>No Account Required</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            Turn Any Custom GPT or Gem into an <br class="hidden sm:inline">
+            <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">Independent Single-File Web App</span>
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mt-4">
+            A curated open-source suite of 50 production-grade AI engines excavated from real-world workflows, translated into English, and engineered to run 100% offline in your browser.
+        </p>
+
+        <!-- Search & Filter Controls -->
+        <div class="mt-8 max-w-xl mx-auto relative">
+            <input type="text" id="searchInput" oninput="filterTools()" placeholder="Search 50 tools by keyword, prompt topic, or category..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-3.5 pl-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all shadow-xl">
+            <span class="absolute left-4 top-3.5 text-slate-500 text-lg">🔍</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-4" id="categoryPills">
+            <button onclick="setCategory('All')" class="cat-pill active text-xs font-semibold px-4 py-1.5 rounded-full bg-indigo-600 text-white transition-colors">All (50)</button>
+            <button onclick="setCategory('Marketing & Monetization')" class="cat-pill text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Marketing & Monetization</button>
+            <button onclick="setCategory('Prompt Engineering & Image/Video')" class="cat-pill text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Prompt & Media</button>
+            <button onclick="setCategory('Writing & Content Creation')" class="cat-pill text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Writing & Scripts</button>
+            <button onclick="setCategory('Mindset & Divination/Astrology')" class="cat-pill text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Mindset & Astrology</button>
+            <button onclick="setCategory('Creative & Entertainment')" class="cat-pill text-xs font-semibold px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">Entertainment</button>
+        </div>
+    </section>
+
+    <!-- Grid Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pb-20 flex-1 w-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="toolGrid">
+            
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="high-converting landing page architect 【成約率up】魅力的なlp作成くん generates high-converting direct response landing page copy using proven psychological frameworks (pas, aida, storybrand).">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🚀</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">High-Converting Landing Page Architect</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【成約率UP】魅力的なLP作成くん</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates high-converting direct response landing page copy using proven psychological frameworks (PAS, AIDA, StoryBrand).</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/landing-page-architect.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="viral threads content generator pro threadsバズ投稿作成gpts engineers viral, high-engagement threads and x posts designed to maximize shares, replies, and follower conversion.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🧵</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Viral Threads Content Generator Pro</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: Threadsバズ投稿作成GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Engineers viral, high-engagement Threads and X posts designed to maximize shares, replies, and follower conversion.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/threads-viral-post-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="digital product sales booster & audit pro 売れないnote改善gpts diagnoses why a digital product, course, or ebook is not selling and provides an instant 7-point optimization overhaul.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">📈</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Digital Product Sales Booster & Audit Pro</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 売れないnote改善GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Diagnoses why a digital product, course, or eBook is not selling and provides an instant 7-point optimization overhaul.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/digital-product-audit-booster.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="e-commerce & affiliate review machine 楽天アフィリエイト楽々くん & amazonアフィ楽々くん writes authentic, persuasive product reviews and comparison buying guides tailored for amazon, rakuten, and e-commerce affiliates.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🛒</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">E-Commerce & Affiliate Review Machine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 楽天アフィリエイト楽々くん & Amazonアフィ楽々くん</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Writes authentic, persuasive product reviews and comparison buying guides tailored for Amazon, Rakuten, and e-commerce affiliates.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/rakuten-amazon-affiliate-master.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="high-ctr youtube thumbnail & title generator 爆売れサムネフレーズメイカー generates irresistible, click-magnet phrases and title pairings specifically engineered for high youtube & social click-through rates (ctr).">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎯</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">High-CTR YouTube Thumbnail & Title Generator</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 爆売れサムネフレーズメイカー</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates irresistible, click-magnet phrases and title pairings specifically engineered for high YouTube & social click-through rates (CTR).</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/thumbnail-hook-phrase-maker.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="social brand concept & positioning analyst アカウントコンセプト分析gpt defines a unique, defensible market positioning and content pillars for creators, brands, and solopreneurs.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">💎</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Social Brand Concept & Positioning Analyst</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: アカウントコンセプト分析GPT</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Defines a unique, defensible market positioning and content pillars for creators, brands, and solopreneurs.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/account-concept-analyst.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="high-value lead magnet & bonus creator 特典提案gpts（無料配布用) conceives irresistible free bonuses, cheat-sheets, and lead magnets that make people eagerly join your email list or buy.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎁</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">High-Value Lead Magnet & Bonus Creator</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 特典提案GPTs（無料配布用)</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Conceives irresistible free bonuses, cheat-sheets, and lead magnets that make people eagerly join your email list or buy.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/lead-magnet-bonus-planner.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="x (twitter) growth & authority post engine 【配布用】x集客ポスト量産gpts drafts authoritative, high-value single posts and threads on x that position you as an industry expert.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🐦</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">X (Twitter) Growth & Authority Post Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【配布用】X集客ポスト量産GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Drafts authoritative, high-value single posts and threads on X that position you as an industry expert.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/x-viral-swipe-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="audience psychology & deep insight miner インサイト分析gpt (無料配布用) uncovers the hidden subconscious fears, desires, and secret objections of your ideal customer.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🔍</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Audience Psychology & Deep Insight Miner</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: インサイト分析GPT (無料配布用)</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Uncovers the hidden subconscious fears, desires, and secret objections of your ideal customer.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/audience-insight-analyzer.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="affiliate blue-ocean niche & product finder 【配布用】楽天アフィ勝ち確ジャンル選定gpts identifies low-competition, high-margin affiliate niches and recurring purchase products.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🏆</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Affiliate Blue-Ocean Niche & Product Finder</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【配布用】楽天アフィ勝ち確ジャンル選定GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Identifies low-competition, high-margin affiliate niches and recurring purchase products.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/rakuten-winning-niche-finder.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="side-hustle aptitude & monetization advisor 副業適正診断コンシェルジュ matches your personality, available hours, and existing skills with the highest-probability digital business model.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🧭</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Side-Hustle Aptitude & Monetization Advisor</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 副業適正診断コンシェルジュ</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Matches your personality, available hours, and existing skills with the highest-probability digital business model.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/side-hustle-aptitude-advisor.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Marketing & Monetization" data-search="emotional power-word copy transformer 感情を完全掌握するパワーワード変換gpts transforms boring, bland corporate text into electrifying, emotionally charged sales copy.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">⚡</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Marketing & Monetization</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Emotional Power-Word Copy Transformer</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 感情を完全掌握するパワーワード変換GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Transforms boring, bland corporate text into electrifying, emotionally charged sales copy.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/power-word-emotional-converter.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="cinematic ai video prompt architect (veo/runway/sora) 動画生成aiプロンプトメーカー crafts professional camera movement, lighting, cinematic aesthetic, and motion prompts for modern video generation models.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎬</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Cinematic AI Video Prompt Architect (Veo/Runway/Sora)</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 動画生成AIプロンプトメーカー</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Crafts professional camera movement, lighting, cinematic aesthetic, and motion prompts for modern video generation models.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/ai-video-prompt-master.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="ai music & audio producer prompt engine (suno/udio) 音声・音楽生成aiプロンプト作る君 synthesizes acoustic parameters, bpm, instrumentation, and lyric structure meta-tags for suno ai & udio.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎵</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">AI Music & Audio Producer Prompt Engine (Suno/Udio)</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 音声・音楽生成AIプロンプト作る君</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Synthesizes acoustic parameters, BPM, instrumentation, and lyric structure meta-tags for Suno AI & Udio.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/ai-music-audio-prompt-engine.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="custom gpt & gem meta-prompt generator 高性能gpts作成gpts & gpts自動作成gem architects production-grade system prompts, instructions, and capability boundaries for custom chatgpt gpts and google gemini gems.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🧠</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Custom GPT & Gem Meta-Prompt Generator</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 高性能GPTs作成GPTs & GPTs自動作成Gem</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Architects production-grade system prompts, instructions, and capability boundaries for custom ChatGPT GPTs and Google Gemini Gems.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/meta-gpts-gems-creator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="midjourney & stable diffusion photorealism architect nanobanana pro画像プロンプト作るくん engineers ultra-realistic visual prompts with exact camera specifications, lighting physics, and aspect ratios.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">📸</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Midjourney & Stable Diffusion Photorealism Architect</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: nanobanana pro画像プロンプト作るくん</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Engineers ultra-realistic visual prompts with exact camera specifications, lighting physics, and aspect ratios.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/midjourney-visual-prompt-pro.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="google veo 3 cinematic prompt studio veo3 prompts gpts specialized prompt engineer for google's next-generation veo 3 high-definition video generation model.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎥</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Google Veo 3 Cinematic Prompt Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: veo3 prompts gpts</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Specialized prompt engineer for Google's next-generation Veo 3 high-definition video generation model.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/veo3-cinematic-prompt-engine.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="whimsical watercolor & ghibli art prompt studio ジ〇リ風プロンプト生成マシン transforms everyday scenes into nostalgic, hand-painted anime and watercolor masterpieces.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎨</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Whimsical Watercolor & Ghibli Art Prompt Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: ジ〇リ風プロンプト生成マシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Transforms everyday scenes into nostalgic, hand-painted anime and watercolor masterpieces.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/ghibli-anime-style-prompt-maker.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="lofi chillhop & cozy bedroom art generator チルポップ画像作成マシン generates aesthetic lofi hip-hop, cozy bedroom, and retro pastel illustration prompts perfect for music streams.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">☕</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Lofi Chillhop & Cozy Bedroom Art Generator</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: チルポップ画像作成マシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates aesthetic lofi hip-hop, cozy bedroom, and retro pastel illustration prompts perfect for music streams.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/chillpop-lofi-art-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="mythical creature & chimera art architect ファンタジーバード作成マシン & 合体動物gpts combines natural zoology with mythical fantasy to design majestic creatures, birds, and animals.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🦅</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Mythical Creature & Chimera Art Architect</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: ファンタジーバード作成マシン & 合体動物GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Combines natural zoology with mythical fantasy to design majestic creatures, birds, and animals.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/fantasy-creature-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="global culture animal personification studio 国ごと擬人化動物画像生成プロンプトマシン creates charismatic anthropomorphic animal characters dressed in authentic cultural attire from nations around the world.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🦁</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Global Culture Animal Personification Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 国ごと擬人化動物画像生成プロンプトマシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Creates charismatic anthropomorphic animal characters dressed in authentic cultural attire from nations around the world.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/country-personification-character.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="wholesome & nostalgic ai video prompt engine 赤ちゃん映像プロンプトマシン generates heartwarming, viral short-video prompts featuring wholesome animal friends, retro toys, and cozy memories.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">👶</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Wholesome & Nostalgic AI Video Prompt Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 赤ちゃん映像プロンプトマシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates heartwarming, viral short-video prompts featuring wholesome animal friends, retro toys, and cozy memories.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/baby-retro-video-prompt-machine.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="surreal utopian & ethereal landscape studio ユートピア作成マシン & 幻想風景 transports viewers into floating islands, crystal palaces, and bioluminescent alien worlds of peace.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🌌</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Surreal Utopian & Ethereal Landscape Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: ユートピア作成マシン & 幻想風景</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Transports viewers into floating islands, crystal palaces, and bioluminescent alien worlds of peace.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/surreal-utopia-landscape-builder.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Prompt Engineering & Image/Video" data-search="miniature isometric diorama & tilt-shift studio ミニチュア動物生成マシン creates adorable tilt-shift, claymation, and handcrafted miniature diorama scenes inside teacups and terrariums.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🧸</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Miniature Isometric Diorama & Tilt-Shift Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: ミニチュア動物生成マシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Creates adorable tilt-shift, claymation, and handcrafted miniature diorama scenes inside teacups and terrariums.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/miniature-diorama-art-maker.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="masterclass long-form copywriting engine 神ライティングさん produces captivating, emotionally resonant essays, newsletter issues, and thought-leadership articles.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">✍️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Masterclass Long-Form Copywriting Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 神ライティングさん</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Produces captivating, emotionally resonant essays, newsletter issues, and thought-leadership articles.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/god-level-copywriting-engine.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="high-retention short-form video scriptwriter (tiktok/shorts) ライントーク台本作成マシーン & 復縁ショート動画台本メーカー writes dramatic, high-retention dialogue and storytelling scripts optimized for 30-60 second vertical videos.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">📱</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">High-Retention Short-Form Video Scriptwriter (TikTok/Shorts)</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: ライントーク台本作成マシーン & 復縁ショート動画台本メーカー</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Writes dramatic, high-retention dialogue and storytelling scripts optimized for 30-60 second vertical videos.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/short-form-video-scriptwriter.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="manga storyboard & 4-panel comic director 4コマ漫画ディレクター & ai漫画ストーリー生成マシーン structures comedic, dramatic, or educational comic strips with exact panel descriptions, dialogue, and art cues.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">📖</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Manga Storyboard & 4-Panel Comic Director</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 4コマ漫画ディレクター & AI漫画ストーリー生成マシーン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Structures comedic, dramatic, or educational comic strips with exact panel descriptions, dialogue, and art cues.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/manga-story-director.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="viral mystery & trivia fact script engine 夢の国雑学ショート作成マシン transforms obscure trivia, theme park secrets, and bizarre history into binge-worthy educational shorts.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🏰</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Viral Mystery & Trivia Fact Script Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 夢の国雑学ショート作成マシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Transforms obscure trivia, theme park secrets, and bizarre history into binge-worthy educational shorts.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/viral-trivia-shorts-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="timeless wisdom & quotable philosophy engine 名言量産マシン & 偉人名言サーチpro synthesizes profound aphorisms, stoic reminders, and historical quotes paired with modern commentary.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">📜</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Timeless Wisdom & Quotable Philosophy Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 名言量産マシン & 偉人名言サーチPro</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Synthesizes profound aphorisms, stoic reminders, and historical quotes paired with modern commentary.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/quotable-proverb-engine.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="relationship psychology & attraction copywriter 恋愛note戦略用gpts & 恋愛 note クリエイター creates compelling guides, psychological breakdowns, and advice columns on dating, romance, and attraction.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">💌</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Relationship Psychology & Attraction Copywriter</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 恋愛note戦略用GPTs & 恋愛 note クリエイター</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Creates compelling guides, psychological breakdowns, and advice columns on dating, romance, and attraction.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/relationship-dialogue-architect.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="stand-up comedy & satirical punchline lab アメリカンジョークの神様 & スカッとkoria generates witty stand-up bits, cultural satire, hilarious comebacks, and satisfying justice stories.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎭</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Stand-up Comedy & Satirical Punchline Lab</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: アメリカンジョークの神様 & スカッとKORIA</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates witty stand-up bits, cultural satire, hilarious comebacks, and satisfying justice stories.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/comedy-humor-script-lab.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="mystical & spiritual narration scriptwriter スピリチュアル動画台本生成gpts crafts soothing, deeply transformative narrative scripts for meditation, law of attraction, and universe mysteries.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">✨</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Mystical & Spiritual Narration Scriptwriter</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: スピリチュアル動画台本生成GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Crafts soothing, deeply transformative narrative scripts for meditation, law of attraction, and universe mysteries.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/spiritual-documentary-scriptwriter.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="workplace & retail relatable story studio バイトあるあるマシン engineers hilarious, hyper-relatable workplace comedy and customer service nightmare sketches.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">☕</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Workplace & Retail Relatable Story Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: バイトあるあるマシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Engineers hilarious, hyper-relatable workplace comedy and customer service nightmare sketches.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/workplace-relatable-comedy.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Writing & Content Creation" data-search="behavioral dark psychology & human nature analyst 「闇心理学動画」作成gpts explores the subtle psychological dynamics of persuasion, charisma, manipulation defense, and social power.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">♟️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Writing & Content Creation</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Behavioral Dark Psychology & Human Nature Analyst</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 「闇心理学動画」作成GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Explores the subtle psychological dynamics of persuasion, charisma, manipulation defense, and social power.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/dark-psychology-story-studio.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="celestial tarot reader & arcana oracle タロット占いgpts delivers deeply insightful, psychologically grounding tarot card interpretations tailored to the seeker's dilemma.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🔮</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Celestial Tarot Reader & Arcana Oracle</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: タロット占いGPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Delivers deeply insightful, psychologically grounding Tarot card interpretations tailored to the seeker's dilemma.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/celestial-tarot-oracle.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="four pillars of destiny (bazi) astrological engine 四柱推命gpts & 【四柱推命】鑑定gpts analyzes the five elements (wood, fire, earth, metal, water) and yin-yang constitution to reveal destiny cycles and wealth timing.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">☯️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Four Pillars of Destiny (BaZi) Astrological Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 四柱推命GPTs & 【四柱推命】鑑定GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Analyzes the Five Elements (Wood, Fire, Earth, Metal, Water) and Yin-Yang constitution to reveal destiny cycles and wealth timing.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/bazi-four-pillars-astrology.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="soul architect & life purpose alignment guide 【叡智ai】soul architect（魔法のランプ） helps you excavate your authentic life purpose, dismantle subconscious limiting beliefs, and step into highest fulfillment.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🏺</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Soul Architect & Life Purpose Alignment Guide</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【叡智AI】Soul Architect（魔法のランプ）</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Helps you excavate your authentic life purpose, dismantle subconscious limiting beliefs, and step into highest fulfillment.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/soul-architect-purpose-alignment.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="unfair advantage & hidden strengths explorer 強み発掘ai uncovers your unique combination of skills that feel effortless to you but look like magic to others.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">⚡</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Unfair Advantage & Hidden Strengths Explorer</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 強み発掘AI</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Uncovers your unique combination of skills that feel effortless to you but look like magic to others.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/unfair-advantage-strengths-finder.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="wisdom compass: high-clarity decision engine 【叡智ai】叡智の羅針盤mini clears mental fog and guides complex crossroads decisions using multi-century wisdom models.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🧭</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Wisdom Compass: High-Clarity Decision Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【叡智AI】叡智の羅針盤mini</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Clears mental fog and guides complex crossroads decisions using multi-century wisdom models.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/wisdom-compass-mini.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="neo spiritual appraisal & destiny scribe neo鑑定文メーカー generates eloquent, deeply moving personal reading letters and destiny certificates.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🪶</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">NEO Spiritual Appraisal & Destiny Scribe</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: NEO鑑定文メーカー</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates eloquent, deeply moving personal reading letters and destiny certificates.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/neo-appraisal-destiny-scribe.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="daily horoscope & cosmic energy post generator x占いポストくん creates engaging daily zodiac horoscopes and lunar phase insights that generate massive social reposts.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🪐</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Daily Horoscope & Cosmic Energy Post Generator</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: X占いポストくん</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Creates engaging daily zodiac horoscopes and lunar phase insights that generate massive social reposts.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/x-astrology-fortune-poster.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Mindset & Divination/Astrology" data-search="sacred manuscript scribe & text purifier 【叡智ai】zero-kun（写本師） purifies complex spiritual and philosophical writings into distilled, crystal-clear meditation principles.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🕯️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Mindset & Divination/Astrology</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Sacred Manuscript Scribe & Text Purifier</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 【叡智AI】ZERO-KUN（写本師）</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Purifies complex spiritual and philosophical writings into distilled, crystal-clear meditation principles.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/zero-kun-sacred-copyist.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="chain restaurant & viral food parody studio チェーン店企画＆プロンプト作成マシーン invents hilarious, mouth-watering menu innovations, marketing campaigns, and viral food concepts.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🍔</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Chain Restaurant & Viral Food Parody Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: チェーン店企画＆プロンプト作成マシーン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Invents hilarious, mouth-watering menu innovations, marketing campaigns, and viral food concepts.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/chain-restaurant-parody-creator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="japanese mythological lore & yokai studio 日本神話妖怪 explores the folklore, abilities, and origins of ancient japanese spirits, kami, and yokai.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">👺</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Japanese Mythological Lore & Yokai Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 日本神話妖怪</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Explores the folklore, abilities, and origins of ancient Japanese spirits, kami, and yokai.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/japanese-yokai-lore-master.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="fantasy birthday cake & dessert architect 誕生日ケーキ無限生成gpts designs bespoke, gravity-defying luxury birthday cakes and edible culinary sculptures for any hobby or dream.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎂</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Fantasy Birthday Cake & Dessert Architect</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 誕生日ケーキ無限生成GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Designs bespoke, gravity-defying luxury birthday cakes and edible culinary sculptures for any hobby or dream.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/birthday-cake-infinite-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="feline chronicles: cat adventure story & art engine 猫物語シナリオ&画像生成gpts generates heartwarming and hilarious illustrated story chapters about adventurous cats with secret lives.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🐱</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Feline Chronicles: Cat Adventure Story & Art Engine</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 猫物語シナリオ&画像生成GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Generates heartwarming and hilarious illustrated story chapters about adventurous cats with secret lives.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/cat-story-scenario-generator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="hyper-luminescent neon & arcade visual lab パチンコ画像プロンプト生成マシーン engineers dazzling, high-energy neon arcade visuals with hyper-reflective chrome and rainbow laser physics.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🎰</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Hyper-Luminescent Neon & Arcade Visual Lab</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: パチンコ画像プロンプト生成マシーン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Engineers dazzling, high-energy neon arcade visuals with hyper-reflective chrome and rainbow laser physics.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/pachinko-neon-visual-creator.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="epic anime battle & supernatural ability choreographer aix鬼〇の刃 choreographs cinematic, frame-by-frame supernatural sword fights and magic clash sequences.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">⚔️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Epic Anime Battle & Supernatural Ability Choreographer</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: AIx鬼〇の刃</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Choreographs cinematic, frame-by-frame supernatural sword fights and magic clash sequences.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/anime-battle-choreographer.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="awakened cyber-beasts & elemental totem studio 覚醒動物gpts transforms ordinary wildlife into celestial deities, glowing cyber-augmented apex beasts, and mythical guardians.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🐺</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Awakened Cyber-Beasts & Elemental Totem Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 覚醒動物GPTs</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Transforms ordinary wildlife into celestial deities, glowing cyber-augmented apex beasts, and mythical guardians.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/awakened-animal-studio.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        <div class="tool-card glass-panel rounded-2xl p-6 hover:border-indigo-500/50 transition-all duration-300 flex flex-col justify-between group" data-category="Creative & Entertainment" data-search="mecha-beast & vehicle hybrid fusion studio 動物×乗り物画像生成マシン fuses sports cars, steam locomotives, and starships with powerful wildlife aerodynamics.">
+            <div>
+                <div class="flex items-center justify-between mb-4">
+                    <span class="text-3xl p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 shadow-inner group-hover:scale-110 transition-transform">🏎️</span>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Creative & Entertainment</span>
+                </div>
+                <h3 class="font-bold text-lg text-white group-hover:text-indigo-300 transition-colors">Mecha-Beast & Vehicle Hybrid Fusion Studio</h3>
+                <p class="text-xs text-indigo-400 font-mono mt-0.5 mb-2 truncate">Origin: 動物×乗り物画像生成マシン</p>
+                <p class="text-sm text-slate-400 line-clamp-3 leading-relaxed">Fuses sports cars, steam locomotives, and starships with powerful wildlife aerodynamics.</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                <span class="text-xs text-slate-500 font-medium">Standalone App</span>
+                <a href="apps/vehicle-animal-fusion-lab.html" class="inline-flex items-center space-x-1 text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white px-3.5 py-2 rounded-lg shadow-md shadow-indigo-600/20 transition-all">
+                    <span>Launch Tool</span>
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-10 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 space-y-3">
+            <p>Curated and Maintained by Kotobuki Owner & Agent100 Manager AI • <a href="https://github.com/0405hirokun-sudo" class="text-indigo-400 hover:underline">0405hirokun-sudo</a></p>
+            <div class="flex justify-center space-x-6 text-slate-400">
+                <a href="https://www.youtube.com/@Agent100-doc" class="hover:text-white transition-colors">YouTube Channel</a>
+                <a href="https://hirokun4.gumroad.com" class="hover:text-white transition-colors">Gumroad Master Products</a>
+                <a href="https://github.com/0405hirokun-sudo/open-gpts-gems-vault" class="hover:text-white transition-colors">GitHub Repository</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentCategory = 'All';
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-pill').forEach(btn => {
+                if (btn.innerText.includes(cat) || (cat === 'All' && btn.innerText.includes('All'))) {
+                    btn.classList.add('bg-indigo-600', 'text-white');
+                    btn.classList.remove('bg-slate-800', 'text-slate-300');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white');
+                    btn.classList.add('bg-slate-800', 'text-slate-300');
+                }
+            });
+            filterTools();
+        }
+
+        function filterTools() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.tool-card');
+            cards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                const search = card.getAttribute('data-search');
+                const matchesCat = (currentCategory === 'All' || cat === currentCategory || (currentCategory === 'Prompt & Media' && cat.includes('Prompt')) || (currentCategory === 'Writing & Scripts' && cat.includes('Writing')) || (currentCategory === 'Entertainment' && cat.includes('Entertainment')));
+                const matchesSearch = !query || search.includes(query);
+                if (matchesCat && matchesSearch) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midjourney & Stable Diffusion Photorealism Architect | OpenGPTs & Gems Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-indigo-900/60 via-purple-900/60 to-pink-900/60 border-b border-indigo-500/20 px-4 py-2 text-center text-xs sm:text-sm text-indigo-200">
+        ⚡ Open-Source Community Edition by <a href="https://www.youtube.com/@Agent100-doc" target="_blank" class="font-bold underline hover:text-white">@Agent100-doc</a> | <a href="https://hirokun4.gumroad.com" target="_blank" class="hover:text-amber-300 transition-colors">Explore Pro Digital Vault on Gumroad ↗</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center space-x-2 text-slate-400 hover:text-white transition-colors text-sm font-medium">
+                <span>← Back to Vault Hub</span>
+            </a>
+            <div class="flex items-center space-x-3 text-xs">
+                <span class="px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Prompt Engineering & Image/Video</span>
+                <span class="text-slate-500 hidden sm:inline">100% Client-Side Standalone</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 py-8 sm:py-12">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 text-3xl shadow-lg shadow-indigo-500/25 mb-4">
+                📸
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">Midjourney & Stable Diffusion Photorealism Architect</h1>
+            <p class="text-sm text-indigo-400 font-mono mt-1">Based on original custom system: nanobanana pro画像プロンプト作るくん</p>
+            <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto mt-3">Engineers ultra-realistic visual prompts with exact camera specifications, lighting physics, and aspect ratios.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Parameters Form -->
+            <div class="lg:col-span-5 glass-panel rounded-2xl p-6 shadow-xl">
+                <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400 mr-2"></span> Input Parameters
+                </h2>
+                
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-slate-300 mb-1">Visual Subject & Action</label>
+                <input type="text" id="subject" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all" placeholder="e.g., Master cello resting on velvet beside an arched window">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-slate-300 mb-1">Lighting Setup</label>
+                <select id="lighting" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                    <option value="Soft Moonbeam & Golden Candlelight">Soft Moonbeam & Golden Candlelight</option><option value="Dramatic Rembrant Chiaroscuro">Dramatic Rembrant Chiaroscuro</option><option value="Studio Softbox Clean Product Light">Studio Softbox Clean Product Light</option><option value="Cinematic Volumetric Sun Rays">Cinematic Volumetric Sun Rays</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-slate-300 mb-1">Aspect Ratio</label>
+                <select id="aspect" class="w-full bg-slate-800/80 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all">
+                    <option value="--ar 16:9 (YouTube / Desktop)">--ar 16:9 (YouTube / Desktop)</option><option value="--ar 9:16 (Shorts / Reels)">--ar 9:16 (Shorts / Reels)</option><option value="--ar 1:1 (Square)">--ar 1:1 (Square)</option><option value="--ar 4:5 (Instagram)">--ar 4:5 (Instagram)</option>
+                </select>
+            </div>
+                <button onclick="synthesizePrompt()" class="w-full mt-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-indigo-500/25 transition-all transform active:scale-95 flex items-center justify-center space-x-2">
+                    <span>Generate AI Engine Prompt</span>
+                    <span>⚡</span>
+                </button>
+            </div>
+
+            <!-- Output / Execution Pane -->
+            <div class="lg:col-span-7 space-y-4">
+                <div class="glass-panel rounded-2xl p-6 shadow-xl">
+                    <div class="flex items-center justify-between mb-3">
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span> Synthesized AI Prompt
+                        </h2>
+                        <button onclick="copyPrompt()" id="copyBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 px-3 py-1.5 rounded-lg border border-slate-700 transition-colors flex items-center space-x-1">
+                            <span>📋 Copy Prompt</span>
+                        </button>
+                    </div>
+                    <textarea id="outputPrompt" rows="12" readonly class="w-full bg-slate-900/90 border border-slate-800 rounded-xl p-4 text-xs sm:text-sm font-mono text-emerald-300 focus:outline-none resize-y" placeholder="Configure parameters on the left and click 'Generate AI Engine Prompt' to view the synthesized prompt here..."></textarea>
+
+                    <!-- Quick Launch Buttons -->
+                    <div class="mt-4 pt-4 border-t border-slate-800/80">
+                        <p class="text-xs text-slate-400 mb-2 font-medium">🚀 1-Click Launch Prompt in your Favorite AI:</p>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="launchAI('chatgpt')" class="bg-slate-800/80 hover:bg-emerald-600/20 hover:text-emerald-300 hover:border-emerald-500/40 border border-slate-700 rounded-lg py-2 px-2 text-center text-xs font-medium transition-all">ChatGPT ↗</button>
+                            <button onclick="launchAI('gemini')" class="bg-slate-800/80 hover:bg-indigo-600/20 hover:text-indigo-300 hover:border-indigo-500/40 border border-slate-700 rounded-lg py-2 px-2 text-center text-xs font-medium transition-all">Gemini ↗</button>
+                            <button onclick="launchAI('claude')" class="bg-slate-800/80 hover:bg-amber-600/20 hover:text-amber-300 hover:border-amber-500/40 border border-slate-700 rounded-lg py-2 px-2 text-center text-xs font-medium transition-all">Claude ↗</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open Source Notice -->
+                <div class="rounded-xl p-4 border border-slate-800/80 bg-slate-900/40 text-xs text-slate-400 flex items-center justify-between">
+                    <span>No data leaves your device. 100% private & client-side.</span>
+                    <a href="https://github.com/0405hirokun-sudo/open-gpts-gems-vault" target="_blank" class="text-indigo-400 hover:underline">View on GitHub ↗</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/60 py-6 text-center text-xs text-slate-500">
+        <p>Built with ❤️ by <a href="https://github.com/0405hirokun-sudo" class="text-slate-400 hover:underline">0405hirokun-sudo</a> • Part of the OpenGPTs & Gems Autonomous Suite</p>
+    </footer>
+
+    <script>
+        function synthesizePrompt() {
+            const template = `Act as an expert commercial photographer and Midjourney v6 prompter. Create 3 ultra-detailed prompts for:
+
+Subject: {subject}
+Lighting: {lighting}
+Aspect Ratio: {aspect}
+
+Include: Lens focal length (e.g. 85mm f/1.4), film stock (Kodak Portra 400), photorealistic texture details, and exact terminal flags (--v 6.1 {aspect} --style raw).`;
+            let result = template;
+            const fieldIds = ["'subject'", "'lighting'", "'aspect'"];
+            fieldIds.forEach(id => {
+                const el = document.getElementById(id);
+                const val = el ? (el.value.trim() || el.placeholder || '') : '';
+                result = result.split(' + id + ').join(val);
+            });
+            document.getElementById('outputPrompt').value = result;
+        }
+
+        function copyPrompt() {
+            const out = document.getElementById('outputPrompt');
+            if (!out.value) synthesizePrompt();
+            navigator.clipboard.writeText(out.value).then(() => {
+                const btn = document.getElementById('copyBtn');
+                btn.innerHTML = '<span>✅ Copied!</span>';
+                btn.classList.add('bg-emerald-600/30', 'text-emerald-300');
+                setTimeout(() => {
+                    btn.innerHTML = '<span>📋 Copy Prompt</span>';
+                    btn.classList.remove('bg-emerald-600/30', 'text-emerald-300');
+                }, 2000);
+            });
+        }
+
+        function launchAI(platform) {
+            const text = document.getElementById('outputPrompt').value;
+            if (!text) synthesizePrompt();
+            copyPrompt();
+            if (platform === 'chatgpt') window.open('https://chatgpt.com/?hints=search&q=' + encodeURIComponent(document.getElementById('outputPrompt').value), '_blank');
+            else if (platform === 'gemini') window.open('https://gemini.google.com/app', '_blank');
+            else if (platform === 'claude') window.open('https://claude.ai/new', '_blank');
+        }
+
+        // Auto synthesize placeholder prompt on page load
+        window.onload = synthesizePrompt;
+    </script>
+</body>
+</html>
